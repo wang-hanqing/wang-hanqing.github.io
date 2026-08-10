@@ -68,7 +68,7 @@ section.block { padding: 60px 0; }
 
 /* Hero */
 .hero { padding: 72px 0 56px; }
-.hero h1 { max-width: 14ch; }
+.hero h1 { max-width: none; }
 @media (max-width: 640px) {
   .hero h1 { max-width: 100%; font-size: 1.35rem !important; }
 }
