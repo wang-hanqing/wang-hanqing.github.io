@@ -1,0 +1,8 @@
+<div class="journal-list" data-filter-items>
+{% for entry in include.entries %}
+<article class="journal-entry" data-category="{{ entry.category | escape }}">
+<div class="card-meta"><time datetime="{{ entry.date | date: '%Y-%m-%d' }}">{{ entry.date | date: '%b %d, %Y' }}</time><span class="type">{{ entry.category | escape }}</span></div>
+<h3><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a></h3>
+<p>{{ entry.summary | escape }}</p></article>
+{% else %}<p class="empty">Journal entries will appear here once published.</p>{% endfor %}
+</div>
