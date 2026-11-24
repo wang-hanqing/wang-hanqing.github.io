@@ -1,0 +1,8 @@
+---
+layout: default
+title: Beyond work
+permalink: /beyond-work/
+---
+<section class="wrap page-section"><h1>Beyond work</h1><p class="intro">A collection of moments, places and experiences that keep me curious.</p>
+<div class="filter-controls" data-filter-group hidden aria-label="Filter photo albums"><button type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="Arts & Culture" aria-pressed="false">Arts &amp; Culture</button><button type="button" data-filter="Community & Connection" aria-pressed="false">Community &amp; Connection</button><button type="button" data-filter="Places & Exploration" aria-pressed="false">Places &amp; Exploration</button></div><p class="sr-only" role="status" data-filter-status></p>
+<div class="album-grid" data-filter-items>{% assign albums = site.albums | sort: 'order' %}{% for album in albums %}<article data-category="{{ album.category | escape }}"><a href="{{ album.url | relative_url }}">{% if album.cover %}<img src="{{ album.cover | relative_url }}" alt="{{ album.cover_alt | escape }}" loading="lazy">{% endif %}<h2>{{ album.title | escape }}</h2></a><p class="card-meta">{{ album.when | escape }} · {{ album.location | escape }}</p></article>{% else %}<p class="empty">A photo collection is being curated.</p>{% endfor %}</div></section>
