@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<article class="wrap page-section"><a class="back" href="{{ '/beyond-work/' | relative_url }}">← Beyond work</a><div class="card-meta">{{ page.category | escape }} · {{ page.when | escape }} · {{ page.location | escape }}</div>
+<h1>{{ page.title | escape }}</h1><p class="intro">{{ page.summary | escape }}</p>
+{{ content }}
+<div class="photo-grid">{% for photo in page.photos %}<figure><a href="{{ photo.src | relative_url }}" class="photo-link" aria-label="Open full image: {{ photo.alt | escape }}"><img src="{{ photo.src | relative_url }}" alt="{{ photo.alt | escape }}" loading="lazy"{% if photo.width %} width="{{ photo.width }}"{% endif %}{% if photo.height %} height="{{ photo.height }}"{% endif %}></a>{% if photo.caption %}<figcaption>{{ photo.caption | escape }}</figcaption>{% endif %}</figure>{% endfor %}</div>
+{% if page.journal_url %}<p><a href="{{ page.journal_url | relative_url }}">Read the journal entry</a></p>{% endif %}</article>
