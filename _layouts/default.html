@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+<meta name="description" content="{{ page.summary | default: site.description | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.summary | default: site.description | escape }}">
+{% if page.cover %}<meta property="og:image" content="{{ page.cover | absolute_url }}">{% endif %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+<script defer src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="{{ '/' | relative_url }}">Hanqing Wang</a>
+<button type="button" class="menu-toggle" aria-expanded="false" aria-controls="navigation" hidden>Menu</button>
+<nav id="navigation" aria-label="Main navigation"><ul>
+{% assign names = 'About,Work,Journal,Beyond Work,Contact' | split: ',' %}
+{% assign urls = '/about/,/work/,/journal/,/beyond-work/,/contact/' | split: ',' %}
+{% for name in names %}{% assign target = urls[forloop.index0] %}<li><a href="{{ target | relative_url }}"{% if page.url == target %} aria-current="page"{% endif %}>{{ name }}</a></li>{% endfor %}
+</ul></nav></div></header>
+<main id="main" tabindex="-1">{{ content }}</main>
+<footer class="site-footer"><div class="wrap footer-inner"><p>© {{ site.time | date: '%Y' }} Hanqing Wang</p><nav aria-label="Contact links"><a href="https://www.linkedin.com/in/hanqing-jessica-wang/">LinkedIn</a><a href="https://github.com/wang-hanqing">GitHub</a><a href="mailto:hw3146@columbia.edu">Email</a><a href="{{ '/resume.pdf' | relative_url }}">Resume (PDF)</a></nav></div></footer>
+</body></html>
