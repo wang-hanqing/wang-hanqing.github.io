@@ -1,0 +1,9 @@
+---
+layout: default
+title: Journal
+permalink: /journal/
+---
+<section class="wrap page-section reading"><h1>Journal</h1><p class="intro">Notes on work, ideas and things I find interesting.</p>
+<div class="filter-controls" data-filter-group hidden aria-label="Filter journal"><button type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="Insights" aria-pressed="false">Insights</button><button type="button" data-filter="Updates" aria-pressed="false">Updates</button><button type="button" data-filter="Field Notes" aria-pressed="false">Field Notes</button></div>
+<p class="sr-only" role="status" data-filter-status></p>
+{% include journal-list.html entries=site.posts %}</section>
