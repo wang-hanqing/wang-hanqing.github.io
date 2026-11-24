@@ -1,0 +1,6 @@
+<article class="work-card" data-category="{{ include.item.category | escape }}">
+<a class="work-link" href="{{ include.item.url | relative_url }}">
+{% if include.item.cover %}<img class="work-cover" src="{{ include.item.cover | relative_url }}" alt="{{ include.item.cover_alt | escape }}" loading="lazy" width="720" height="405">{% else %}<div class="work-cover typographic {% if include.item.category == 'Professional Work' %}professional{% else %}project{% endif %}" aria-hidden="true"><span class="cover-mark">{{ include.item.mark | escape }}</span><span class="cover-note">{{ include.item.mark_note | escape }}</span></div>{% endif %}
+<h3>{{ include.item.title | escape }}</h3></a>
+<div class="card-meta"><span class="type {% if include.item.category == 'Professional Work' %}professional{% else %}project{% endif %}">{{ include.item.category | escape }}</span><span>{{ include.item.context | escape }}</span></div>
+<p>{{ include.item.summary | escape }}</p></article>
