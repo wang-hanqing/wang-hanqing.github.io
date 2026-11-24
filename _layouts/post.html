@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="wrap reading page-section"><a class="back" href="{{ '/journal/' | relative_url }}">← Journal</a>
+<div class="card-meta"><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: '%B %d, %Y' }}</time><span>{{ page.category | escape }}</span></div>
+<h1>{{ page.title | escape }}</h1><p class="intro">{{ page.summary | escape }}</p>
+{% if page.cover %}<img class="detail-cover" src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | escape }}">{% endif %}
+{{ content }}
+{% if page.linkedin_url %}<p><a href="{{ page.linkedin_url | escape }}">Related LinkedIn post</a></p>{% endif %}
+{% if page.related_work %}{% assign work = site.projects | where: 'slug', page.related_work | first %}{% if work %}<p><a href="{{ work.url | relative_url }}">Related work: {{ work.title | escape }}</a></p>{% endif %}{% endif %}
+<nav class="post-nav" aria-label="More journal entries">{% if page.previous %}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | escape }}</a>{% endif %}{% if page.next %}<a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }} →</a>{% endif %}</nav>
+</article>
