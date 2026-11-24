@@ -1,0 +1,32 @@
+title: Hanqing Wang
+description: Strategy, digital transformation and analytics.
+url: https://wang-hanqing.github.io
+markdown: kramdown
+permalink: /journal/:year/:month/:day/:title/
+collections:
+  projects:
+    output: true
+    permalink: /work/:name/
+  albums:
+    output: true
+    permalink: /beyond-work/:name/
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+  - scope:
+      path: ""
+      type: albums
+    values:
+      layout: album
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - WEBSITE_SPEC.md
+  - README.md
+  - CONTENT_GUIDE.md
