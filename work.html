@@ -1,0 +1,9 @@
+---
+layout: default
+title: Work
+permalink: /work/
+---
+<section class="wrap page-section"><h1>Work</h1><p class="intro">Selected professional work, product ideas and technical explorations.</p>
+<div class="filter-controls" data-filter-group hidden aria-label="Filter work"><button type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="Professional Work" aria-pressed="false">Professional Work</button><button type="button" data-filter="Projects" aria-pressed="false">Projects</button></div>
+<p class="sr-only" role="status" data-filter-status></p>
+<div class="work-grid" data-filter-items>{% assign works = site.projects | sort: 'order' %}{% for item in works %}{% include work-card.html item=item %}{% endfor %}</div></section>
