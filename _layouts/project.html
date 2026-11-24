@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<article class="wrap reading page-section"><a class="back" href="{{ '/work/' | relative_url }}">← All work</a>
+<div class="card-meta"><span class="type {% if page.category == 'Professional Work' %}professional{% else %}project{% endif %}">{{ page.category | escape }}</span><span>{{ page.context | escape }}</span><span>{{ page.status | escape }}</span></div>
+<h1>{{ page.title | escape }}</h1><p class="intro">{{ page.summary | escape }}</p>
+{% if page.cover %}<img class="detail-cover" src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | escape }}">{% endif %}
+{{ content }}
+{% if page.links %}<div class="resource-links">{% for link in page.links %}<a href="{{ link.url | escape }}">{{ link.title | escape }}</a>{% endfor %}</div>{% endif %}
+{% assign related = site.posts | where: 'related_work', page.slug %}{% if related.size > 0 %}<h2>Related journal entries</h2>{% include journal-list.html entries=related %}{% endif %}
+</article>
